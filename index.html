@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venus Transcriptions</title>
+    <style>
+        body{
+            margin: 0;
+            font-family: "Roboto", sans-serif;
+            font-weight: 300;
+        }
+        .all-one{
+            height: 100vh;
+        }
+        nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 6vh;
+            background: rgb(141, 210, 215);
+        }
+        .name{
+            margin-left: 20px;
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            cursor: default;
+        }
+        .name p{
+            margin: 0;
+            font-weight: 500;
+        }
+        .price-and-more{
+            display: flex;
+            justify-content: end;
+        }
+        .price-and-more li{
+            list-style-type: none;
+            margin-left: 20px;
+            margin-right: 8px;
+        }
+        .price-and-more li a{
+            text-decoration: none;
+            color: black;
+            height: 100%;
+        }
+
+        .main{
+            display: grid;
+            grid-template-columns: 4fr 5fr;
+        }
+        .left-main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 94vh;
+        }
+        .right-main{
+            background: white;
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+            height: 100vh;
+        }
+
+        .intro-and-order-btn{
+            background: white;
+            width: 80%;
+            margin-left: 70px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            font-size: 4vh;
+        }
+        .intro-and-order-btn h1{
+            margin: 0;
+        }
+        .intro-and-order-btn button{
+            height: 60px;
+            width: 120px;
+            font-size: 34px;
+            background: rgb(185, 232, 240);
+            margin-top: 20px;
+            border-style: none;
+            border-radius: 5px;
+            box-shadow: 2px 2px 6px rgb(180, 180, 255);
+            transition: 100ms;
+            cursor: pointer;
+        }
+        .intro-and-order-btn button:hover{
+            background: rgb(141, 210, 215);
+        }
+        .p-one{
+            padding-left: 4px;
+        }
+        .p-two{
+            padding-left: 4px;
+        }
+
+        .descr-one{
+            display: grid;
+            grid-template-rows: min-content min-content 1fr;
+            margin-top: 16px;
+        }
+        .descr-one p{
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            font-size: 30px;
+        }
+
+
+        .speech-bbl{
+            height: 160px;
+            width: 336px;
+            background: rgb(141, 210, 215);
+            border-style: solid;
+            border-color: black;
+            border-width: 4px;
+            border-bottom-width: 0;
+            display: flex;
+            align-items: center;
+            margin-top: 16px;
+        }
+        .dotline{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+        .dotline li{
+            list-style-type: none;
+            height: 30px;
+            width: 30px;
+            border-radius: 15px;
+            background: white;
+        }
+
+
+        .figure{
+            margin-left: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: white;
+        }
+        .head{
+            height: 172px;
+            width: 172px;
+            border-radius: 86px;
+            border-style: solid;
+            border-color: black;
+            border-width: 2px;
+            background: white;
+            box-shadow: inset -26px -26px rgb(185, 232, 240);
+            rotate: -16deg;
+        }
+        .pbody{
+            height: 190px;
+            width: 178px;
+            margin-top: -60px;
+        }
+        .pbody img{
+            height: 200px;
+            width: 178px;
+        }
+
+        .person-laptop{
+            display: flex;
+            align-items: end;
+            margin-top: 12px;
+            margin-bottom: 12px;
+            background: white;
+        }
+
+        .laptop{
+            height: 166px;
+            width: 320px;
+            margin-right: 26px;
+            background: rgb(185, 232, 240);
+            border-style: solid;
+            border-color: black;
+            border-width: 3px;
+            transform: skew(8deg);
+        }
+
+
+        .paper{
+            height: 190px;
+            width: 490px;
+            background: rgb(141, 210, 215);
+            border-style: solid;
+            border-color: black;
+            border-width: 4px;
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            margin-left: 100px;
+        }
+        .lines{
+            width: 80%;
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+        }
+        .lines li{
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+        }
+        .line{
+            width: 100%;
+            background: white;
+            height: 16px;
+            border-radius: 8px;
+        }
+        .one{
+            margin-top: 20px;
+        }
+        .three{
+            width: 70%;
+            margin-bottom: 20px;
+        }
+
+        .icon-all{
+            margin-right: 300px;
+        }
+
+        .bbl-conn{
+            position: absolute;
+            width: 344px;
+            height: 60px;
+            display: grid;
+            grid-template-columns: 301px 59px 18px;
+        }
+        .bbl-conn div{
+            height: 100%;
+        }
+        .left-contour{
+            border-top-style: solid;
+            border-top-color: black;
+            border-top-width: 3px;
+            margin-right: -2px;
+        }
+        .right-contour{
+            border-left-style: solid;
+            border-left-color: black;
+            border-left-width: 4px;
+            margin-left: -20px;
+            z-index: 2;
+            background: white;
+        }
+        .middle-contour{
+            background: rgb(141, 210, 215);
+            border-left-style: solid;
+            border-left-color: black;
+            border-left-width: 4px;
+            margin-left: 20px;
+            transform: skew(33deg);
+        }
+
+
+
+        .all-two{
+            height: 200px;
+            background: rgb(141, 210, 215);
+        }
+
+        @media (max-width: 1340px){
+            .left-main{
+                height: 50vh;
+                margin-top: 6vh;
+            }
+            .right-main{
+                height: 44vh;
+            }
+            .main{
+                display: grid;
+            }
+
+
+            .paper{
+                height: 95px;
+                width: 245px;
+            }
+            .laptop{
+                height: 83px;
+                width: 160px;
+            }
+            .speech-bbl{
+                height: 80px;
+                width: 50%;
+            }
+
+            .bbl-conn {
+                height: 30px;
+                width: 200px;
+                grid-template-columns: 150.5px 29.5px 9px;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="all-one">
+        <nav>
+            <div class="name"><p>VENUS</p><p>TRANSCRIPTIONS</p></div>
+            <div class="price-and-more">
+                <li><a href="#">PRICING</a></li>
+                <li><a href="#">ABOUT</a></li>
+            </div>
+        </nav>
+        <div class="main">
+            <div class="left-main">
+                <div class="intro-and-order-btn">
+                    <h1 class="p-one">NEED HELP</h1>
+                    <h1 class="p-two">TRANSCRIBING?</h1>
+                    <div class="descr-one">
+                        <p>Your transcription service for various</p> 
+                        <p>kinds of online media</p>
+                        <div></div>
+                    </div>
+                    <button>ORDER</button>
+                </div>
+            </div>
+            <div class="right-main">
+                <div class="icon-all">
+                    <div class="figure-pc-speech-bbl">
+
+                        <div class="speech-bbl">
+                            <div class="dotline">
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </div>
+                        </div>
+                        <div class="bbl-conn">
+                            <div class="left-contour"></div>
+                            <div class="middle-contour"></div>
+                            <div class="right-contour"></div>
+                        </div>
+                        
+                        <div class="person-laptop">
+                            <div class="laptop"></div>
+
+                            <div class="figure">
+                                <div class="head"></div>
+                                <div class="pbody">
+                                    <img src="cone_body.png">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="paper">
+                        <div class="lines">
+                            <li>
+                                <div class="line one"></div>
+                            </li>
+                            <li>
+                                <div class="line two"></div>
+                            </li>
+                            <li>
+                                <div class="line three"></div>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="all-two"></div>
+
+    <div class="all-three"></div>
+</body>
+</html>
